@@ -1,0 +1,972 @@
+[
+    {
+        "name": "frame_0000",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0020",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0040",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0060",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0080",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0120",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0140",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0180",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0200",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0220",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0240",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0260",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0280",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0300",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0320",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0340",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0360",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0380",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0400",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0420",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0440",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0460",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0480",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0500",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0520",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0540",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0560",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0580",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0600",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0620",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0640",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0660",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0680",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0700",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0720",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0740",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0760",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0780",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0800",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0820",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0840",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0860",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0880",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0900",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0920",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0940",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0960",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_0980",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1000",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1020",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1040",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1060",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1080",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1100",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1120",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1140",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1160",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1180",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1200",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1220",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1240",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1260",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1280",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1300",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1320",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1340",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1360",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1380",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1400",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1420",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1440",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1460",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1480",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1500",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1520",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1540",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1560",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1580",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1600",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1620",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1640",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1660",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1680",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1700",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1720",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1740",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1760",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1780",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1800",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1820",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1840",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1860",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1880",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1900",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1920",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1940",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1960",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_1980",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2000",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2020",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2040",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2060",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2080",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2100",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2120",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2140",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2160",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2180",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2200",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2220",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2240",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2260",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2280",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2300",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2320",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2340",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2360",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2380",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2400",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2420",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2440",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2460",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2480",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2500",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2520",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2540",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2560",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2580",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2600",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2620",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2640",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2660",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2680",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2700",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2720",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2740",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2760",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2780",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2800",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2820",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2840",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2860",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2880",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2900",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2920",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_2940",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3000",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3040",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3060",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3080",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3100",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3180",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3200",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3220",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3240",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3260",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3280",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3300",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3320",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3340",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3360",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3380",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3400",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3420",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3440",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3460",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3480",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3500",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3520",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3540",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3560",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3580",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3600",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3620",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3640",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3700",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3720",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_3740",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4020",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4060",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4080",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4100",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4140",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4160",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4180",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4200",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4220",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4240",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4260",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4280",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4300",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4320",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4340",
+        "label": "fight",
+        "value": 18
+    },
+    {
+        "name": "frame_4380",
+        "label": "fight",
+        "value": 18
+    }
+]

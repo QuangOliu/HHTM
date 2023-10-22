@@ -2,7 +2,8 @@ const express = require('express')
 
 const app = express()
 const bodyParser = require('body-parser')
-const cors = require("cors");
+const cors = require('cors')
+const morgan = require('morgan')
 
 const authRoute = require('./Route/AuthRoute')
 const imageRoute = require('./Route/ImageRoute')
@@ -14,7 +15,8 @@ const trainingRoute = require('./Route/TrainingRoute')
 app.use(express.json())
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
-app.use(cors());
+app.use(cors())
+app.use(morgan('common'))
 
 const db = require('./connectDB')
 
@@ -32,24 +34,24 @@ app.get('/files', (req, res) => {
         status: 500,
         data: null,
         message: 'Lỗi đọc thư mục',
-      });
+      })
     } else {
       res.json({
         status: 200,
         data: files,
         message: 'Danh sách tệp',
-      });
+      })
     }
-  });
-});
+  })
+})
 
 // Middleware để phục vụ tệp tĩnh từ thư mục public
-app.use('/public', express.static(publicFolderPath));
+app.use('/public', express.static(publicFolderPath))
 
 // Route public để hiển thị tệp cụ thể
 app.get('/public/:filename', (req, res) => {
-  const { filename } = req.params;
-  const filePath = path.join(publicFolderPath, filename);
+  const { filename } = req.params
+  const filePath = path.join(publicFolderPath, filename)
 
   // Kiểm tra xem tệp có tồn tại không
   if (!fs.existsSync(filePath)) {
@@ -57,13 +59,12 @@ app.get('/public/:filename', (req, res) => {
       status: 404,
       data: null,
       message: 'Tệp không tồn tại',
-    });
+    })
   } else {
     // Phục vụ tệp cho người dùng
-    res.sendFile(filePath);
+    res.sendFile(filePath)
   }
-});
-
+})
 
 /////////// ROUTE AUTH
 // Route đăng ký người dùng mới

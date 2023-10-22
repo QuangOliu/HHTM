@@ -3,12 +3,14 @@ var router = express.Router()
 const multer = require('multer')
 const fs = require('fs')
 const dir = 'uploads'
+const { Op } = require('sequelize')
 
 const {
   createImage,
   readImages,
   updateImages,
   deleteImages,
+  searchImage,
 } = require('../Controller/ImagesController')
 
 if (!fs.existsSync(dir)) {
@@ -37,5 +39,7 @@ router.put('/update/:image_id', updateImages)
 
 //Delete IMAGE
 router.delete('/delete/:image_id', deleteImages)
+
+router.get('/search', searchImage)
 
 module.exports = router

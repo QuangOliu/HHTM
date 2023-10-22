@@ -115,4 +115,41 @@ const deleteImages = (req, res) => {
     })
   })
 }
-module.exports = { createImage, readImages, updateImages, deleteImages }
+const searchImage = async (req, res) => {
+  try {
+    const { q } = req.query
+
+    const query = 'SELECT * FROM Images WHERE name LIKE ?'
+    db.query(query, [`%${q}%`], (err, results) => {
+      if (err) {
+        console.error('Lỗi khi tìm kiếm Image:', err)
+        return res.status(500).json({
+          status: 500,
+          data: null,
+          message: 'Lỗi server.',
+        })
+      }
+
+      res.status(200).json({
+        status: 200,
+        data: results,
+        message: 'Kết quả tìm kiếm Image theo mô tả hoặc tên chứa từ khóa.',
+      })
+    })
+  } catch (error) {
+    console.error('Lỗi khi tìm kiếm Image:', error)
+    res.status(500).json({
+      status: 500,
+      data: null,
+      message: 'Lỗi server.',
+    })
+  }
+}
+
+module.exports = {
+  createImage,
+  readImages,
+  updateImages,
+  deleteImages,
+  searchImage,
+}

@@ -113,6 +113,7 @@ const Model = sequelize.define(
     model_name: {
       type: DataTypes.STRING(255),
       allowNull: false,
+      unique: true,
     },
     path: {
       type: DataTypes.STRING(255),
@@ -123,7 +124,10 @@ const Model = sequelize.define(
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    training_duration: DataTypes.TIME,
+    training_duration: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
     loss: DataTypes.FLOAT,
     accuracy: DataTypes.FLOAT,
   },

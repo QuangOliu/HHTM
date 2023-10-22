@@ -7,6 +7,8 @@ const authRoute = require('./Route/AuthRoute')
 const imageRoute = require('./Route/ImageRoute')
 const labelRoute = require('./Route/LabelRoute')
 const roleRoute = require('./Route/RoleRoute')
+const modelRoute = require('./Route/ModelsRoute')
+const trainingRoute = require('./Route/TrainingRoute')
 
 app.use(express.json())
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
@@ -23,6 +25,10 @@ app.use('/images', imageRoute)
 app.use('/labels', labelRoute)
 
 app.use('/roles', roleRoute)
+
+app.use('/models', modelRoute)
+
+app.use('/training', trainingRoute)
 
 app.get('/', (req, res) => {
   const query = 'SELECT * FROM users'

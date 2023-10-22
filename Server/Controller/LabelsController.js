@@ -1,6 +1,8 @@
 const db = require('../connectDB')
-
 const { Label } = require('../Model')
+
+const { Op } = require('sequelize')
+
 const createLabel = (req, res) => {
   const { label_name } = req.body
 
@@ -83,5 +85,32 @@ const deleteLabel = (req, res) => {
     })
   })
 }
+const searchLabel = (req, res) => {
+  const { q } = req.query;
 
-module.exports = { createLabel, readLabels, updateLabel, deleteLabel }
+  const query = 'SELECT * FROM Labels WHERE label_name LIKE ?';
+  db.query(query, [`%${q}%`], (err, results) => {
+    if (err) {
+      console.error('Lỗi truy vấn label:', err);
+      return res.status(500).json({
+        status: 500,
+        data: null,
+        message: 'Lỗi server.',
+      });
+    }
+
+    res.status(200).json({
+      status: 200,
+      data: results,
+      message: 'Danh sách label tìm kiếm.',
+    });
+  });
+};
+
+module.exports = {
+  createLabel,
+  readLabels,
+  updateLabel,
+  deleteLabel,
+  searchLabel,
+}

@@ -5,6 +5,7 @@ const {
   deleteRole,
   searchRole,
 } = require('../Controller/RoleController')
+const { Op } = require('sequelize')
 
 var express = require('express')
 const { Model } = require('../Model')

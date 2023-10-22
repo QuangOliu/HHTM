@@ -4,6 +4,7 @@ const {
   readLabels,
   updateLabel,
   deleteLabel,
+  searchLabel,
 } = require('../Controller/LabelsController')
 var router = express.Router()
 
@@ -19,5 +20,8 @@ router.put('/update/:Label_id', updateLabel)
 
 //Delete Label
 router.delete('/delete/:Label_id', deleteLabel)
+
+//Search label
+router.get('/search', searchLabel)
 
 module.exports = router

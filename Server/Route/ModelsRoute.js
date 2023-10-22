@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 const multer = require('multer')
 const fs = require('fs')
-const dir = 'uploads'
+const dir = 'model-ai'
 
 const {
   createModel,

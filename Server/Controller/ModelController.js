@@ -2,20 +2,50 @@ const { Model } = require('../Model')
 const db = require('../connectDB')
 
 const createModel = async (req, res) => {
-  try {
-    const newModel = await Model.create(req.body)
-    res.json({
-      status: 200,
-      data: newModel,
-      message: 'Model created successfully',
+  const {
+    user_id,
+    model_name,
+    description,
+    architecture,
+    training_duration,
+    loss,
+    accuracy,
+  } = req.body
+  const uploadedFile = req?.file 
+  const path = uploadedFile?.filename
+
+  const query = `
+    INSERT INTO Models (user_id, model_name, path, description, architecture, training_duration, loss, accuracy)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `
+
+  const values = [
+    user_id,
+    model_name,
+    path,
+    description,
+    architecture,
+    training_duration,
+    loss,
+    accuracy,
+  ]
+
+  db.query(query, values, (err, result) => {
+    if (err) {
+      console.error('Lỗi tạo model:', err)
+      return res.status(500).json({
+        status: 500,
+        data: null,
+        message: 'Lỗi server.',
+      })
+    }
+
+    res.status(201).json({
+      status: 201,
+      data: { model_id: result.insertId },
+      message: 'Model created successfully.',
     })
-  } catch (error) {
-    res.status(400).json({
-      status: 400,
-      data: null,
-      message: error.message,
-    })
-  }
+  })
 }
 
 const getAllModels = async (req, res) => {

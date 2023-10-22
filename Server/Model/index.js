@@ -117,12 +117,12 @@ const Model = sequelize.define(
     },
     path: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     description: DataTypes.TEXT,
     architecture: {
       type: DataTypes.STRING(50),
-      allowNull: false,
+      allowNull: true,
     },
     training_duration: {
       type: DataTypes.STRING(255),

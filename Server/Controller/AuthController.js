@@ -48,7 +48,7 @@ const loginController = (req, res) => {
 
       res.status(200).json({
         status: 200,
-        data: { token },
+        data: { token, user },
         message: 'Đăng nhập thành công.',
       })
     })

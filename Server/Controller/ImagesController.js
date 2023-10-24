@@ -1,3 +1,4 @@
+const { Image } = require('../Model')
 const db = require('../connectDB')
 
 const createImage = (req, res) => {
@@ -119,8 +120,8 @@ const searchImage = async (req, res) => {
   try {
     const { q } = req.query
 
-    const query = 'SELECT * FROM Images WHERE name LIKE ?'
-    db.query(query, [`%${q}%`], (err, results) => {
+    const query = 'SELECT * FROM Images WHERE name LIKE ? OR description LIKE ?'
+    db.query(query, [`%${q}%`, `%${q}%`], (err, results) => {
       if (err) {
         console.error('Lỗi khi tìm kiếm Image:', err)
         return res.status(500).json({
@@ -145,11 +146,36 @@ const searchImage = async (req, res) => {
     })
   }
 }
-
+const getImage = async (req, res) => {
+  const image_id = req.params.image_id
+  try {
+    const image = await Image.findByPk(image_id)
+    if (image) {
+      res.json({
+        status: 200,
+        data: image,
+        message: 'Image retrieved successfully',
+      })
+    } else {
+      res.json({
+        status: 400,
+        data: null,
+        message: 'Image not found',
+      })
+    }
+  } catch (error) {
+    res.status(500).json({
+      status: 400,
+      data: null,
+      message: error.message,
+    })
+  }
+}
 module.exports = {
   createImage,
   readImages,
   updateImages,
   deleteImages,
   searchImage,
+  getImage,
 }

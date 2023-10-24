@@ -19,8 +19,15 @@ const Breadcrumbs = lazy(() => import('../views/ui/Breadcrumbs'))
 
 const Login = lazy(() => import('../views/pages/Login.js'))
 const Register = lazy(() => import('../views/pages/Register.js'))
+
 const LabelPage = lazy(() => import('../views/pages/label/LabelPage.js'))
 const LabelDetail = lazy(() => import('../views/pages/label/LabelDetail.js'))
+
+const ImagePage = lazy(() => import('../views/pages/Image/imagePage.js'))
+const ImageDetail = lazy(() => import('../views/pages/Image/imageFrm.js'))
+const ImageAdd = lazy(() => import('../views/pages/Image/imageFrmAdd.js'))
+// const ImageAdd = lazy(() => import('../views/pages/Image/FileUpload.js'))
+// const ImageDetail = lazy(() => import('../views/pages/image/imageFrm.js'))
 /*****Routes******/
 
 const ThemeRoutes = [
@@ -32,9 +39,15 @@ const ThemeRoutes = [
       { path: '/starter', exact: true, element: <Starter /> },
       { path: '/login', exact: true, element: <Login /> },
       { path: '/register', exact: true, element: <Register /> },
+
       { path: '/label', exact: true, element: <LabelPage /> },
       { path: '/label/edit/:slug', exact: true, element: <LabelDetail /> },
       { path: '/label/add', exact: true, element: <LabelDetail /> },
+
+      { path: '/image', exact: true, element: <ImagePage /> },
+      { path: '/image/edit/:slug', exact: true, element: <ImageDetail /> },
+      { path: '/image/add', exact: true, element: <ImageAdd /> },
+
       { path: '/about', exact: true, element: <About /> },
       { path: '/alerts', exact: true, element: <Alerts /> },
       { path: '/badges', exact: true, element: <Badges /> },

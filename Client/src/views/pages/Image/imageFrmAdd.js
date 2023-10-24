@@ -1,85 +1,86 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import imageApi from '../../../api/imageApi';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
-import labelApi from '../../../api/labelApi';
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import imageApi from '../../../api/imageApi'
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
+import labelApi from '../../../api/labelApi'
 
 const LabelPage = () => {
-  const navigation = useNavigate();
-  const [isNull, setIsNull] = useState(false);
-  const [labels, setLabels] = useState([]);
+  const navigation = useNavigate()
+  const [isNull, setIsNull] = useState(false)
+  const [labels, setLabels] = useState([])
+
+  const [file, setFile] = useState(null)
 
   const [formData, setFormData] = useState({
-    image_id: '',
-    name: '',
-    file_path: '',
-    upload_date: '',
     description: '',
     label_id: null, // Khởi tạo label_id là null
-  });
+  })
 
-  const { slug } = useParams();
-  const [isAdd, setIsAdd] = useState(false);
+  const { slug } = useParams()
+  const [isAdd, setIsAdd] = useState(false)
 
   useEffect(() => {
     if (slug) {
-      setIsAdd(false);
-    } else setIsAdd(true);
-  }, [slug]);
+      setIsAdd(false)
+    } else setIsAdd(true)
+  }, [slug])
 
   useEffect(() => {
     imageApi
       .getItem(slug)
       .then((result) => {
         if (result?.status >= 200 && result?.status < 300) {
-          setFormData(result.data);
+          setFormData(result.data)
         }
         if (result?.status >= 400 && result.status < 500) {
-          setIsNull(true);
+          setIsNull(true)
         }
       })
-      .catch((err) => {});
-  }, [slug]);
+      .catch((err) => {})
+  }, [slug])
 
   useEffect(() => {
     labelApi.getAll().then((result) => {
       if (result?.status >= 200 && result.status < 300) {
-        setLabels(result.data);
+        setLabels(result.data)
       }
-    });
-  }, []);
+    })
+  }, [])
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0]
+    setFile(selectedFile)
+  }
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData({
       ...formData,
       [name]: value,
-    });
-  };
-
+    })
+  }
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Kiểm tra nếu label_id là "No Label" thì thiết lập thành null
-    if (formData.label_id === 0) {
-      formData.label_id = null;
-    }
+    e.preventDefault()
+    if (file) {
+      const x = new FormData()
+      x.append('file', file)
+      x.append('description', formData.description)
+      x.append('label_id', formData.label_id)
 
-    if (isAdd) {
-      imageApi
-        .create(formData)
-        .then((result) => {
-          navigation('/image');
+      fetch('http://localhost:4000/images/create', {
+        method: 'POST',
+        body: x,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          navigation("/image")
+          console.log(data)
         })
-        .catch((err) => {});
-    } else {
-      imageApi
-        .update(formData.image_id, formData)
-        .then((result) => {
-          navigation('/image');
+        .catch((error) => {
+          console.error('Error uploading file:', error)
         })
-        .catch((err) => {});
     }
-  };
+  }
 
   return (
     <div>
@@ -87,18 +88,13 @@ const LabelPage = () => {
       <p>Slug: {slug}</p>
       {true ? (
         <Form onSubmit={handleSubmit}>
-          <p>Image ID: {formData.image_id}</p>
-          <p>File path: {formData.file_path}</p>
-          <p>Upload: {formData.upload_date}</p>
           <FormGroup>
-            <Label for="name">Image name</Label>
+            <Label for="exampleFile">File</Label>
             <Input
-              id="name"
-              name="name"
-              placeholder="Image name"
-              type="text"
-              value={formData.name}
-              onChange={handleInputChange}
+              id="exampleFile"
+              name="file"
+              type="file"
+              onChange={handleFileChange}
             />
           </FormGroup>
           <FormGroup>
@@ -138,7 +134,7 @@ const LabelPage = () => {
       )}
       {/* Hiển thị dữ liệu cho slug cụ thể tại đây */}
     </div>
-  );
-};
+  )
+}
 
-export default LabelPage;
+export default LabelPage

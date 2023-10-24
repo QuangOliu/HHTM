@@ -12,8 +12,8 @@ import {
   Row,
   Table,
 } from 'reactstrap'
-import labelApi from '../../../api/labelApi'
 import { useNavigate } from 'react-router-dom'
+import imageApi from '../../../api/imageApi'
 
 const Tables = () => {
   const [tableData, setTableData] = useState([])
@@ -21,9 +21,10 @@ const Tables = () => {
 
   const navigator = useNavigate()
   useEffect(() => {
-    labelApi
+    imageApi
       .getAll()
       .then((result) => {
+        console.log(result)
         if (result.status >= 200 && result.status < 300) {
           setTableData(result?.data)
         }
@@ -39,7 +40,7 @@ const Tables = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(searchTerm)
-    labelApi
+    imageApi
       .search(searchTerm)
       .then((result) => {
         console.log(result)
@@ -54,16 +55,16 @@ const Tables = () => {
   }
 
   const handleEdit = (id) => {
-    navigator(`/label/edit/${id}`)
+    navigator(`/image/edit/${id}`)
   }
 
   const handelDelete = (id) => {
-    labelApi
+    imageApi
       .delete(id)
       .then((result) => {
         console.log(result)
         setTableData((pre) => {
-          const newData = pre.filter((item) => item.label_id !== id)
+          const newData = pre.filter((item) => item.image_id !== id)
           return newData
         })
       })
@@ -98,28 +99,36 @@ const Tables = () => {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Label Name</th>
+                  <th>File Name</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>label_id</th>
+                  <th>Upload Date</th>
                 </tr>
               </thead>
               <tbody>
                 {tableData.map((item, index) => {
                   return (
                     <tr key={index}>
+                      <th scope="row">{item?.image_id}</th>
+                      <th scope="row">{item?.file_path}</th>
+                      <th scope="row">{item?.name}</th>
+                      <th scope="row">{item?.description}</th>
                       <th scope="row">{item?.label_id}</th>
-                      <th scope="row">{item?.label_name}</th>
+                      <th scope="row">{item?.upload_date}</th>
                       <th>
                         <Button
                           className="btn mx-4"
                           outline
                           color="warning"
-                          onClick={() => handleEdit(item?.label_id)}
+                          onClick={() => handleEdit(item?.image_id)}
                         >
                           Edit
                         </Button>
                         <Button
                           className="btn"
                           color="danger"
-                          onClick={() => handelDelete(item?.label_id)}
+                          onClick={() => handelDelete(item?.image_id)}
                         >
                           Delete
                         </Button>
@@ -132,9 +141,9 @@ const Tables = () => {
             <Button
               className="btn"
               color="primary"
-              onClick={() => navigator('/label/add')}
+              onClick={() => navigator('/image/add')}
             >
-              ADD Label
+              ADD Image
             </Button>
           </CardBody>
         </Card>

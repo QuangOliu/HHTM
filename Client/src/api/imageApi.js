@@ -1,6 +1,6 @@
 import axiosClient from './axiosClient'
 
-const labelApi = {
+const imageApi = {
   create(data) {
     const url = 'images/create'
     return axiosClient.post(url, data)
@@ -9,7 +9,7 @@ const labelApi = {
     const url = 'images/get'
     return axiosClient.get(url)
   },
-  getLabel(id) {
+  getItem(id) {
     const url = `images/${id}`
     return axiosClient.get(url)
   },
@@ -29,4 +29,4 @@ const labelApi = {
   },
 }
 
-export default labelApi
+export default imageApi

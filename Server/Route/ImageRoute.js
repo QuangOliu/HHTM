@@ -11,6 +11,7 @@ const {
   updateImages,
   deleteImages,
   searchImage,
+  getImage,
 } = require('../Controller/ImagesController')
 
 if (!fs.existsSync(dir)) {
@@ -34,12 +35,13 @@ router.post('/create', upload.single('file'), createImage)
 //Read IMAGE
 router.get('/get', readImages)
 
+router.get('/search', searchImage)
 //Update IMAGE
 router.put('/update/:image_id', updateImages)
 
 //Delete IMAGE
 router.delete('/delete/:image_id', deleteImages)
 
-router.get('/search', searchImage)
+router.get('/:image_id', getImage)
 
 module.exports = router

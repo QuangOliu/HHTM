@@ -29,6 +29,16 @@ const navigation = [
     icon: 'bi bi-card-image',
   },
   {
+    title: 'Model',
+    href: '/model',
+    icon: 'bi bi-amd',
+  },
+  {
+    title: 'Training',
+    href: '/training',
+    icon: 'bi bi-person-hearts',
+  },
+  {
     title: 'Alert',
     href: '/alerts',
     icon: 'bi bi-bell',

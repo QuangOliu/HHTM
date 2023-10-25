@@ -13,7 +13,7 @@ import {
   Table,
 } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
-import imageApi from '../../../api/imageApi'
+import modelApi from '../../../api/modelApi'
 
 const Tables = () => {
   const [tableData, setTableData] = useState([])
@@ -21,7 +21,7 @@ const Tables = () => {
 
   const navigator = useNavigate()
   useEffect(() => {
-    imageApi
+    modelApi
       .getAll()
       .then((result) => {
         console.log(result)
@@ -40,7 +40,7 @@ const Tables = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(searchTerm)
-    imageApi
+    modelApi
       .search(searchTerm)
       .then((result) => {
         console.log(result)
@@ -55,16 +55,16 @@ const Tables = () => {
   }
 
   const handleEdit = (id) => {
-    navigator(`/image/edit/${id}`)
+    navigator(`/model/edit/${id}`)
   }
 
   const handelDelete = (id) => {
-    imageApi
+    modelApi
       .delete(id)
       .then((result) => {
         console.log(result)
         setTableData((pre) => {
-          const newData = pre.filter((item) => item.image_id !== id)
+          const newData = pre.filter((item) => item.model_id !== id)
           return newData
         })
       })
@@ -76,7 +76,7 @@ const Tables = () => {
         <Card>
           <CardTitle tag="h6" className="border-bottom p-3 mb-0">
             <i className="bi bi-card-text me-2"> </i>
-            Danh sách Image
+            Danh sách Label
           </CardTitle>
           <CardBody className="">
             <Form onSubmit={handleSubmit}>
@@ -85,7 +85,7 @@ const Tables = () => {
                 <Input
                   id="search"
                   name="search"
-                  placeholder="Search Image"
+                  placeholder="Search Label"
                   type="text" // Thay type thành 'text'
                   value={searchTerm}
                   onChange={handleInputChange}
@@ -99,36 +99,42 @@ const Tables = () => {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>File Name</th>
-                  <th>Name</th>
+                  <th>Model Name</th>
+                  <th>File path</th>
+                  <th>Create by</th>
                   <th>Description</th>
-                  <th>label_id</th>
-                  <th>Upload Date</th>
+                  <th>training duration</th>
+                  <th>Architecture</th>
+                  <th>Loss</th>
+                  <th>Accuracy</th>
                 </tr>
               </thead>
               <tbody>
                 {tableData.map((item, index) => {
                   return (
                     <tr key={index}>
-                      <th scope="row">{item?.image_id}</th>
-                      <th scope="row">{item?.file_path}</th>
-                      <th scope="row">{item?.name}</th>
+                      <th scope="row">{item?.model_id}</th>
+                      <th scope="row">{item?.model_name}</th>
+                      <th scope="row">{item?.path}</th>
+                      <th scope="row">{item?.user_id}</th>
                       <th scope="row">{item?.description}</th>
-                      <th scope="row">{item?.label_id}</th>
-                      <th scope="row">{item?.upload_date}</th>
+                      <th scope="row">{item?.training_duration}</th>
+                      <th scope="row">{item?.architecture}</th>
+                      <th scope="row">{item?.loss}</th>
+                      <th scope="row">{item?.accuracy}</th>
                       <th>
                         <Button
                           className="btn mx-4"
                           outline
                           color="warning"
-                          onClick={() => handleEdit(item?.image_id)}
+                          onClick={() => handleEdit(item?.model_id)}
                         >
                           Edit
                         </Button>
                         <Button
                           className="btn"
                           color="danger"
-                          onClick={() => handelDelete(item?.image_id)}
+                          onClick={() => handelDelete(item?.model_id)}
                         >
                           Delete
                         </Button>
@@ -141,7 +147,7 @@ const Tables = () => {
             <Button
               className="btn"
               color="primary"
-              onClick={() => navigator('/image/add')}
+              onClick={() => navigator('/model/add')}
             >
               ADD Image
             </Button>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import imageApi from '../../../api/imageApi'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import labelApi from '../../../api/labelApi'
+import modelApi from '../../../api/modelApi'
 
 const LabelPage = () => {
   const navigation = useNavigate()
@@ -10,12 +10,15 @@ const LabelPage = () => {
   const [labels, setLabels] = useState([])
 
   const [formData, setFormData] = useState({
-    image_id: '',
-    name: '',
-    file_path: '',
-    upload_date: '',
+    model_name: '',
+    model_id: '',
+    path: '',
+    user_id: '',
     description: '',
-    label_id: null, // Khởi tạo label_id là null
+    training_duration: '',
+    architecture: '',
+    loss: '',
+    accuracy: '',
   })
 
   const { slug } = useParams()
@@ -28,7 +31,7 @@ const LabelPage = () => {
   }, [slug])
 
   useEffect(() => {
-    imageApi
+    modelApi
       .getItem(slug)
       .then((result) => {
         if (result?.status >= 200 && result?.status < 300) {
@@ -59,23 +62,19 @@ const LabelPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Kiểm tra nếu label_id là "No Label" thì thiết lập thành null
-    if (formData.label_id === 0) {
-      formData.label_id = null
-    }
 
     if (isAdd) {
-      imageApi
+      modelApi
         .create(formData)
         .then((result) => {
-          navigation('/image')
+          navigation('/model')
         })
         .catch((err) => {})
     } else {
-      imageApi
-        .update(formData.image_id, formData)
+      modelApi
+        .update(slug, formData)
         .then((result) => {
-          navigation('/image')
+          navigation('/model')
         })
         .catch((err) => {})
     }
@@ -83,51 +82,39 @@ const LabelPage = () => {
 
   return (
     <div>
-      <h1>Image Page</h1>
+      <h1>model Page</h1>
       <p>Slug: {slug}</p>
       {true ? (
         <Form onSubmit={handleSubmit}>
-          <p>Image ID: {formData.image_id}</p>
-          <p>File path: {formData.file_path}</p>
-          <p>Upload: {formData.upload_date}</p>
+          <p>model ID: {formData?.model_id}</p>
+          <p>Model name: {formData?.model_name}</p>
+          <p>path: {formData?.path}</p>
+          <p>Create By user id: {formData?.user_id}</p>
+          <p>training duration: {formData?.training_duration}</p>
+          <p>architecture: {formData?.architecture}</p>
+          <p>Loss: {formData?.loss}</p>
+          <p>accuracy: {formData?.accuracy}</p>
           <FormGroup>
-            <Label for="name">Image name</Label>
+            <Label for="model_name">model name</Label>
             <Input
-              id="name"
-              name="name"
-              placeholder="Image name"
+              id="model_name"
+              name="model_name"
+              placeholder="model name"
               type="text"
-              value={formData.name}
+              value={formData?.model_name}
               onChange={handleInputChange}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="description">Image Description</Label>
+            <Label for="description">model Description</Label>
             <Input
               id="description"
               name="description"
-              placeholder="Image description"
+              placeholder="model description"
               type="text"
-              value={formData.description}
+              value={formData?.description}
               onChange={handleInputChange}
             />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleSelect">Select</Label>
-            <Input
-              id="exampleSelect"
-              name="label_id"
-              type="select"
-              value={formData.label_id || 0} // Đặt giá trị mặc định là 0 nếu label_id là null
-              onChange={handleInputChange}
-            >
-              <option value={null}>No Label</option> {/* Lựa chọn "No Label" */}
-              {labels.map((label) => (
-                <option key={label.label_id} value={label.label_id}>
-                  {label.label_name}
-                </option>
-              ))}
-            </Input>
           </FormGroup>
           <Button className="mt-2" type="submit">
             {!isAdd ? 'Update' : 'Add'}

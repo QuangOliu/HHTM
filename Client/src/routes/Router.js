@@ -26,8 +26,15 @@ const LabelDetail = lazy(() => import('../views/pages/label/LabelDetail.js'))
 const ImagePage = lazy(() => import('../views/pages/Image/imagePage.js'))
 const ImageDetail = lazy(() => import('../views/pages/Image/imageFrm.js'))
 const ImageAdd = lazy(() => import('../views/pages/Image/imageFrmAdd.js'))
-// const ImageAdd = lazy(() => import('../views/pages/Image/FileUpload.js'))
-// const ImageDetail = lazy(() => import('../views/pages/image/imageFrm.js'))
+
+const ModelPage = lazy(() => import('../views/pages/Model/modelPage.js'))
+const ModelDetail = lazy(() => import('../views/pages/Model/modelFrm.js'))
+const ModelAdd = lazy(() => import('../views/pages/Model/modelFrmAdd.js'))
+
+const TrainingPage = lazy(() => import('../views/pages/Training/trainingPage.js'))
+const TrainingDetail = lazy(() => import('../views/pages/Training/trainingFrm.js'))
+const TrainingAdd = lazy(() => import('../views/pages/Training/trainingFrmAdd.js'))
+
 /*****Routes******/
 
 const ThemeRoutes = [
@@ -47,6 +54,14 @@ const ThemeRoutes = [
       { path: '/image', exact: true, element: <ImagePage /> },
       { path: '/image/edit/:slug', exact: true, element: <ImageDetail /> },
       { path: '/image/add', exact: true, element: <ImageAdd /> },
+
+      { path: '/model', exact: true, element: <ModelPage /> },
+      { path: '/model/edit/:slug', exact: true, element: <ModelDetail /> },
+      { path: '/model/add', exact: true, element: <ModelAdd /> },
+
+      { path: '/training', exact: true, element: <TrainingPage /> },
+      { path: '/training/edit/:slug', exact: true, element: <TrainingDetail /> },
+      { path: '/training/add', exact: true, element: <TrainingAdd /> },
 
       { path: '/about', exact: true, element: <About /> },
       { path: '/alerts', exact: true, element: <Alerts /> },

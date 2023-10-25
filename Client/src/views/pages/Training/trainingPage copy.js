@@ -13,6 +13,7 @@ import {
   Table,
 } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
+import imageApi from '../../../api/imageApi'
 import modelApi from '../../../api/modelApi'
 
 const Tables = () => {
@@ -40,7 +41,7 @@ const Tables = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(searchTerm)
-    modelApi
+    imageApi
       .search(searchTerm)
       .then((result) => {
         console.log(result)
@@ -55,16 +56,28 @@ const Tables = () => {
   }
 
   const handleEdit = (id) => {
-    navigator(`/training/model/${id}`)
+    navigator(`/image/edit/${id}`)
   }
 
+  const handelDelete = (id) => {
+    imageApi
+      .delete(id)
+      .then((result) => {
+        console.log(result)
+        setTableData((pre) => {
+          const newData = pre.filter((item) => item.image_id !== id)
+          return newData
+        })
+      })
+      .catch((err) => {})
+  }
   return (
     <Row>
       <Col lg="12">
         <Card>
           <CardTitle tag="h6" className="border-bottom p-3 mb-0">
             <i className="bi bi-card-text me-2"> </i>
-            Danh sách Model
+            Danh sách Image
           </CardTitle>
           <CardBody className="">
             <Form onSubmit={handleSubmit}>
@@ -73,7 +86,7 @@ const Tables = () => {
                 <Input
                   id="search"
                   name="search"
-                  placeholder="Search Label"
+                  placeholder="Search Image"
                   type="text" // Thay type thành 'text'
                   value={searchTerm}
                   onChange={handleInputChange}
@@ -87,37 +100,38 @@ const Tables = () => {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Model Name</th>
-                  <th>File path</th>
-                  <th>Create by</th>
+                  <th>File Name</th>
+                  <th>Name</th>
                   <th>Description</th>
-                  <th>training duration</th>
-                  <th>Architecture</th>
-                  <th>Loss</th>
-                  <th>Accuracy</th>
+                  <th>label_id</th>
+                  <th>Upload Date</th>
                 </tr>
               </thead>
               <tbody>
                 {tableData.map((item, index) => {
                   return (
                     <tr key={index}>
-                      <th scope="row">{item?.model_id}</th>
-                      <th scope="row">{item?.model_name}</th>
-                      <th scope="row">{item?.path}</th>
-                      <th scope="row">{item?.user_id}</th>
+                      <th scope="row">{item?.image_id}</th>
+                      <th scope="row">{item?.file_path}</th>
+                      <th scope="row">{item?.name}</th>
                       <th scope="row">{item?.description}</th>
-                      <th scope="row">{item?.training_duration}</th>
-                      <th scope="row">{item?.architecture}</th>
-                      <th scope="row">{item?.loss}</th>
-                      <th scope="row">{item?.accuracy}</th>
+                      <th scope="row">{item?.label_id}</th>
+                      <th scope="row">{item?.upload_date}</th>
                       <th>
                         <Button
                           className="btn mx-4"
                           outline
                           color="warning"
-                          onClick={() => handleEdit(item?.model_id)}
+                          onClick={() => handleEdit(item?.image_id)}
                         >
-                          Retraining
+                          Edit
+                        </Button>
+                        <Button
+                          className="btn"
+                          color="danger"
+                          onClick={() => handelDelete(item?.image_id)}
+                        >
+                          Delete
                         </Button>
                       </th>
                     </tr>
@@ -125,13 +139,13 @@ const Tables = () => {
                 })}
               </tbody>
             </Table>
-            {/* <Button
+            <Button
               className="btn"
               color="primary"
-              onClick={() => navigator('/training/add')}
+              onClick={() => navigator('/image/add')}
             >
               ADD Image
-            </Button> */}
+            </Button>
           </CardBody>
         </Card>
       </Col>

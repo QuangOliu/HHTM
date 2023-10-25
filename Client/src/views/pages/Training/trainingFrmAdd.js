@@ -1,23 +1,28 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Button, Form, Table } from 'reactstrap'
 import imageApi from '../../../api/imageApi'
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
-import labelApi from '../../../api/labelApi'
+import trainingApi from '../../../api/trainingApi'
+import modelApi from '../../../api/modelApi'
 
-const LabelPage = () => {
+const TrainingPage = () => {
   const navigation = useNavigate()
-  const [isNull, setIsNull] = useState(false)
-  const [labels, setLabels] = useState([])
-
-  const [file, setFile] = useState(null)
-
-  const [formData, setFormData] = useState({
-    description: '',
-    label_id: null, // Khởi tạo label_id là null
-  })
-
   const { slug } = useParams()
   const [isAdd, setIsAdd] = useState(false)
+  const [formData, setFormData] = useState({
+    model_name: '',
+    model_id: '',
+    path: '',
+    user_id: '',
+    description: '',
+    training_duration: '',
+    architecture: '',
+    loss: '',
+    accuracy: '',
+  })
+  const [pictures, setPictures] = useState([])
+  const [picturesTraining, setPicturesTraining] = useState([])
+  const [selectedImages, setSelectedImages] = useState([])
 
   useEffect(() => {
     if (slug) {
@@ -26,107 +31,118 @@ const LabelPage = () => {
   }, [slug])
 
   useEffect(() => {
-    imageApi
+    modelApi
       .getItem(slug)
       .then((result) => {
         if (result?.status >= 200 && result?.status < 300) {
           setFormData(result.data)
-        }
-        if (result?.status >= 400 && result.status < 500) {
-          setIsNull(true)
         }
       })
       .catch((err) => {})
   }, [slug])
 
   useEffect(() => {
-    labelApi.getAll().then((result) => {
-      if (result?.status >= 200 && result.status < 300) {
-        setLabels(result.data)
-      }
-    })
-  }, [])
-
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0]
-    setFile(selectedFile)
-  }
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (file) {
-      const x = new FormData()
-      x.append('file', file)
-      x.append('description', formData.description)
-      x.append('label_id', formData.label_id)
-
-      fetch('http://localhost:4000/images/create', {
-        method: 'POST',
-        body: x,
+    imageApi
+      .getAll()
+      .then((result) => {
+        if (result.status >= 200 && result.status < 300) {
+          setPictures(result?.data)
+        }
       })
-        .then((response) => response.json())
-        .then((data) => {
-          navigation("/image")
-          console.log(data)
-        })
-        .catch((error) => {
-          console.error('Error uploading file:', error)
-        })
+      .catch((err) => {})
+    trainingApi
+      .getItem(slug)
+      .then((result) => {
+        setPicturesTraining(result.data)
+      })
+      .catch((err) => {})
+  }, [slug])
+
+  const toggleImageSelection = (imageId) => {
+    if (selectedImages.includes(imageId)) {
+      setSelectedImages(selectedImages.filter((id) => id !== imageId))
+    } else {
+      setSelectedImages([...selectedImages, imageId])
     }
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // Gửi danh sách selectedImages lên server hoặc xử lý theo nhu cầu của bạn.
+    const requestData = {
+      model_id: formData.model_id,
+      image_ids: selectedImages,
+    }
+    trainingApi
+      .create(requestData)
+      .then((result) => {
+        console.log(result)
+        setPicturesTraining()
+      })
+      .catch((err) => {})
+    console.log('Selected Images:', selectedImages)
+  }
+
+  const trainingImages = pictures.filter(
+    (picture) => !picturesTraining.includes(picture.image_id)
+  )
+
   return (
     <div>
-      <h1>Image Page</h1>
+      <h1>Training model Page</h1>
       <p>Slug: {slug}</p>
       {true ? (
         <Form onSubmit={handleSubmit}>
-          <FormGroup>
-            <Label for="exampleFile">File</Label>
-            <Input
-              id="exampleFile"
-              name="file"
-              type="file"
-              onChange={handleFileChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="description">Image Description</Label>
-            <Input
-              id="description"
-              name="description"
-              placeholder="Image description"
-              type="text"
-              value={formData.description}
-              onChange={handleInputChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleSelect">Select</Label>
-            <Input
-              id="exampleSelect"
-              name="label_id"
-              type="select"
-              value={formData.label_id || 0} // Đặt giá trị mặc định là 0 nếu label_id là null
-              onChange={handleInputChange}
-            >
-              <option value={null}>No Label</option> {/* Lựa chọn "No Label" */}
-              {labels.map((label) => (
-                <option key={label.label_id} value={label.label_id}>
-                  {label.label_name}
-                </option>
-              ))}
-            </Input>
-          </FormGroup>
+          <p>model ID: {formData?.model_id}</p>
+          <p>Model name: {formData?.model_name}</p>
+          <p>Model description: {formData?.description}</p>
+          <p>path: {formData?.path}</p>
+          <p>Create By user id: {formData?.user_id}</p>
+          <p>training duration: {formData?.training_duration}</p>
+          <p>architecture: {formData?.architecture}</p>
+          <p>Loss: {formData?.loss}</p>
+          <p>accuracy: {formData?.accuracy}</p>
+          <Table bordered hover>
+            <thead>
+              <tr>
+                <th>Chọn</th>
+                <th>#</th>
+                <th>ảnh</th>
+                <th>File Name</th>
+                <th>Description</th>
+                <th>label_id</th>
+                <th>Upload Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {trainingImages.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <input
+                        type="checkbox"
+                        checked={selectedImages.includes(item.image_id)}
+                        onChange={() => toggleImageSelection(item.image_id)}
+                      />
+                    </td>
+                    <th scope="row">{item?.image_id}</th>
+                    <td>
+                      <img
+                        src={`http://localhost:4000/public/crop/${item.file_path}`}
+                        alt={item.name}
+                      />
+                    </td>
+                    <td>{item.name}</td>
+                    <th scope="row">{item?.description}</th>
+                    <th scope="row">{item?.label_id}</th>
+                    <th scope="row">{item?.upload_date}</th>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </Table>
           <Button className="mt-2" type="submit">
-            {!isAdd ? 'Update' : 'Add'}
+            chọn ảnh
           </Button>
         </Form>
       ) : (
@@ -137,4 +153,4 @@ const LabelPage = () => {
   )
 }
 
-export default LabelPage
+export default TrainingPage

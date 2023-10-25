@@ -61,7 +61,7 @@ const ThemeRoutes = [
 
       { path: '/training', exact: true, element: <TrainingPage /> },
       { path: '/training/edit/:slug', exact: true, element: <TrainingDetail /> },
-      { path: '/training/add', exact: true, element: <TrainingAdd /> },
+      { path: '/training/model/:slug', exact: true, element: <TrainingAdd /> },
 
       { path: '/about', exact: true, element: <About /> },
       { path: '/alerts', exact: true, element: <Alerts /> },

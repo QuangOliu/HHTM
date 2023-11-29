@@ -5,12 +5,12 @@ function VideoSegmenter({ videoSrc }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const segments = [
     {
-      title: 'Đoạn 1',
+      title: 'Đoạn 1: label1',
       start: 0,
       end: 10,
     },
     {
-      title: 'Đoạn 2',
+      title: 'Đoạn 2: Label2',
       start: 20,
       end: 30,
     },

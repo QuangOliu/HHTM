@@ -12,8 +12,13 @@ const LabelPage = () => {
   const [file, setFile] = useState(null)
 
   const [formData, setFormData] = useState({
-    description: '',
-    label_id: null, // Khởi tạo label_id là null
+    user_id:'',
+    model_name:'',
+    description:'',
+    architecture:'',
+    training_duration:'',
+    loss:'',
+    accuracy:'',
   })
 
   const { slug } = useParams()
@@ -67,7 +72,7 @@ const LabelPage = () => {
       x.append('description', formData.description)
       x.append('label_id', formData.label_id)
 
-      fetch('http://localhost:4000/images/create', {
+      fetch('http://localhost:4000/model/create', {
         method: 'POST',
         body: x,
       })
@@ -98,7 +103,18 @@ const LabelPage = () => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="description">Image Description</Label>
+            <Label for="description">Model Name</Label>
+            <Input
+              id="model_name"
+              name="model_name"
+              placeholder="Image model_name"
+              type="text"
+              value={formData.model_name}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="description">Model Description</Label>
             <Input
               id="description"
               name="description"
@@ -109,21 +125,48 @@ const LabelPage = () => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="exampleSelect">Select</Label>
+            <Label for="description">Model architecture</Label>
             <Input
-              id="exampleSelect"
-              name="label_id"
-              type="select"
-              value={formData.label_id || 0} // Đặt giá trị mặc định là 0 nếu label_id là null
+              id="architecture"
+              name="architecture"
+              placeholder="Image architecture"
+              type="text"
+              value={formData.architecture}
               onChange={handleInputChange}
-            >
-              <option value={null}>No Label</option> {/* Lựa chọn "No Label" */}
-              {labels.map((label) => (
-                <option key={label.label_id} value={label.label_id}>
-                  {label.label_name}
-                </option>
-              ))}
-            </Input>
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="training_duration">Model training_duration</Label>
+            <Input
+              id="training_duration"
+              name="training_duration"
+              placeholder="Image training_duration"
+              type="text"
+              value={formData.training_duration}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="loss">Model loss</Label>
+            <Input
+              id="loss"
+              name="loss"
+              placeholder="Image loss"
+              type="text"
+              value={formData.loss}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="accuracy">Model accuracy</Label>
+            <Input
+              id="accuracy"
+              name="accuracy"
+              placeholder="Image accuracy"
+              type="text"
+              value={formData.accuracy}
+              onChange={handleInputChange}
+            />
           </FormGroup>
           <Button className="mt-2" type="submit">
             {!isAdd ? 'Update' : 'Add'}

@@ -18,7 +18,7 @@ const VideoPreview = ({ videoUrl }) => {
             <source src={videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-
+{/* 
           <div>
             <label htmlFor="startTime">Thời gian bắt đầu (giây):</label>
             <input
@@ -29,7 +29,7 @@ const VideoPreview = ({ videoUrl }) => {
             />
           </div>
 
-          <button onClick={handleCutVideo}>Cắt Video</button>
+          <button onClick={handleCutVideo}>Cắt Video</button> */}
           <CutVideo videoSrc={videoUrl} />
         </div>
       )}

@@ -38,51 +38,51 @@ const navigation = [
     href: '/training',
     icon: 'bi bi-person-hearts',
   },
-  {
-    title: 'Alert',
-    href: '/alerts',
-    icon: 'bi bi-bell',
-  },
-  {
-    title: 'Badges',
-    href: '/badges',
-    icon: 'bi bi-patch-check',
-  },
-  {
-    title: 'Buttons',
-    href: '/buttons',
-    icon: 'bi bi-hdd-stack',
-  },
-  {
-    title: 'Cards',
-    href: '/cards',
-    icon: 'bi bi-card-text',
-  },
-  {
-    title: 'Grid',
-    href: '/grid',
-    icon: 'bi bi-columns',
-  },
-  {
-    title: 'Table',
-    href: '/table',
-    icon: 'bi bi-layout-split',
-  },
-  {
-    title: 'Forms',
-    href: '/forms',
-    icon: 'bi bi-textarea-resize',
-  },
-  {
-    title: 'Breadcrumbs',
-    href: '/breadcrumbs',
-    icon: 'bi bi-link',
-  },
-  {
-    title: 'About',
-    href: '/about',
-    icon: 'bi bi-people',
-  },
+  // {
+  //   title: 'Alert',
+  //   href: '/alerts',
+  //   icon: 'bi bi-bell',
+  // },
+  // {
+  //   title: 'Badges',
+  //   href: '/badges',
+  //   icon: 'bi bi-patch-check',
+  // },
+  // {
+  //   title: 'Buttons',
+  //   href: '/buttons',
+  //   icon: 'bi bi-hdd-stack',
+  // },
+  // {
+  //   title: 'Cards',
+  //   href: '/cards',
+  //   icon: 'bi bi-card-text',
+  // },
+  // {
+  //   title: 'Grid',
+  //   href: '/grid',
+  //   icon: 'bi bi-columns',
+  // },
+  // {
+  //   title: 'Table',
+  //   href: '/table',
+  //   icon: 'bi bi-layout-split',
+  // },
+  // {
+  //   title: 'Forms',
+  //   href: '/forms',
+  //   icon: 'bi bi-textarea-resize',
+  // },
+  // {
+  //   title: 'Breadcrumbs',
+  //   href: '/breadcrumbs',
+  //   icon: 'bi bi-link',
+  // },
+  // {
+  //   title: 'About',
+  //   href: '/about',
+  //   icon: 'bi bi-people',
+  // },
 ]
 
 const Sidebar = () => {
@@ -121,15 +121,7 @@ const Sidebar = () => {
               </Link>
             </NavItem>
           ))}
-          <Button
-            color="danger"
-            tag="a"
-            target="_blank"
-            className="mt-3"
-            href="https://www.wrappixel.com/templates/xtreme-react-redux-admin/?ref=33"
-          >
-            Upgrade To Pro
-          </Button>
+          
         </Nav>
       </div>
     </div>

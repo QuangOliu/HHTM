@@ -1,8 +1,6 @@
 const db = require('../connectDB')
 const { Label } = require('../Model')
 
-const { Op } = require('sequelize')
-
 const createLabel = (req, res) => {
   const { label_name } = req.body
 

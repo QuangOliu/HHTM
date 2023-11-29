@@ -76,7 +76,7 @@ const Tables = () => {
         <Card>
           <CardTitle tag="h6" className="border-bottom p-3 mb-0">
             <i className="bi bi-card-text me-2"> </i>
-            Danh sách Label
+            Danh sách Model
           </CardTitle>
           <CardBody className="">
             <Form onSubmit={handleSubmit}>
@@ -85,7 +85,7 @@ const Tables = () => {
                 <Input
                   id="search"
                   name="search"
-                  placeholder="Search Label"
+                  placeholder="Search Model"
                   type="text" // Thay type thành 'text'
                   value={searchTerm}
                   onChange={handleInputChange}
@@ -149,7 +149,7 @@ const Tables = () => {
               color="primary"
               onClick={() => navigator('/model/add')}
             >
-              ADD Image
+              ADD Model
             </Button>
           </CardBody>
         </Card>

@@ -21,6 +21,7 @@ const Tables = () => {
 
   const navigator = useNavigate()
   useEffect(() => {
+    // thực hiện fetching data image 
     imageApi
       .getAll()
       .then((result) => {
@@ -39,7 +40,7 @@ const Tables = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(searchTerm)
+    // Thực hiện tìm kiếm với từ khóa
     imageApi
       .search(searchTerm)
       .then((result) => {
